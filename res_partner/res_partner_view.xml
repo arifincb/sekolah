@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_uiinet_partner_form" model="ir.ui.view">
+			<field name="name">uiinet.res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field name="priority">99</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">				
+				<field name="city" position="before">
+					<field name="districts_id" placeholder="Kecamatan" />
+				</field>				
+				<field name="city" position="after">
+					<field name="city_id" placeholder="Kota" on_change="onchange_districts(districts_id)" />
+				</field>
+				<!--
+				<field name="state_id" position="replace">
+					<field name="state_id" domain="[('state_id', '=',city_id.state_id.id)]"  />
+				</field>
+				-->	
+			</field>
+		</record>
+	</data>
+</openerp>
+<!-- domain="[('state_id', '=',state_id)]" -->

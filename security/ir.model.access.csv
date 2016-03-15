@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_opc_siswa_siswa,opc_siswa_siswa,model_opc_siswa,group_opc_siswa,1,0,0,0
+access_opc_siswa_guru,opc_siswa_guru,model_opc_siswa,group_opc_guru,1,1,1,0
+access_opc_siswa_wali,opc_siswa_wali,model_opc_siswa,group_opc_wali,1,0,0,0
+access_opc_siswa_pegawai,opc_siswa_pegawai,model_opc_siswa,group_opc_pegawai,1,1,1,1
+access_opc_tahun_akademik_pegawai,opc_tahun_akademik_pegawai,model_opc_tahun_akademik,group_opc_pegawai,1,1,1,1
+access_opc_jenjang_pegawai,opc_jenjang_pegawai,model_opc_jenjang,group_opc_pegawai,1,1,1,1
+access_opc_kelas_pegawai,opc_kelas_pegawai,model_opc_kelas,group_opc_pegawai,1,1,1,1
+access_opc_prodi_pegawai,opc_prodi_pegawai,model_opc_prodi,group_opc_pegawai,1,1,1,1
+access_opc_rombel_pegawai,opc_rombel_pegawai,model_opc_rombel,group_opc_pegawai,1,1,1,1
+

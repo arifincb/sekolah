@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+		<!-- Form View -->
+		<record id="view_res_districts_form" model="ir.ui.view">
+			<field name="name">res.districts.form</field>
+			<field name="model">res.districts</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="districts">
+					<header>
+					</header>
+					<sheet>
+						<group name="group_top">
+							<field name="name" />
+							<field name="districts_code" />
+							<field name="districts_num_seq" />
+							<field name="city_id" />								
+						</group>						
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Tree View -->
+		<record id="view_res_districts_tree" model="ir.ui.view">
+			<field name="name">res.districts.tree</field>
+			<field name="model">res.districts</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<tree string="districts">					
+					<field name="name" />					
+					<field name="city_id" />						
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Filter View -->
+		
+		<record id="view_res_districts_search" model="ir.ui.view">
+			<field name="name">res.districts.search</field>
+			<field name="model">res.districts</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<search string="districts">
+					<field name="name" />					
+					<field name="city_id" />						
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="State" domain="[]"
+							context="{'group_by':'city_id'}" />						
+						<filter string="Name" domain="[]"
+							context="{'group_by':'name'}" />		
+					</group>
+				</search>
+			</field>
+		</record>				
+		
+        <!-- Action View -->
+		
+        <record model="ir.actions.act_window" id="act_res_districts_view">
+			<field name="name">districts</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.districts</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_res_districts_search" />
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_res_districts_view_form">
+			<field name="act_window_id" ref="act_res_districts_view" />
+			<field name="sequence" eval="20" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_res_districts_form" />
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_res_districts_view_tree">
+			<field name="act_window_id" ref="act_res_districts_view" />
+			<field name="sequence" eval="10" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_res_districts_tree" />
+		</record>
+				        
+    </data>
+</openerp>

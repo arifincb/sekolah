@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+		<!-- Form View -->
+		<record id="view_opc_kelas_form" model="ir.ui.view">
+			<field name="name">Opc - Kelas Form</field>
+			<field name="model">opc.kelas</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="kelas">
+					<header>
+					</header>
+					<sheet>
+						<group name="group_top">
+							<field name="name" />
+							<field name="code" />
+							<field name="jenjang_id" />	
+							<field name="is_current" />
+						</group>
+						<group name="group_bottom">
+							<field name="prodi_ids" context="{'default_kelas_id':id}" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- Tree View -->
+		<record id="view_opc_kelas_tree" model="ir.ui.view">
+			<field name="name">opc.kelas.tree</field>
+			<field name="model">opc.kelas</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<tree string="kelas">					
+					<field name="name" />
+					<field name="prodi_ids" />
+					<field name="jenjang_id" />	
+					<field name="is_current" />										
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Filter View -->
+		
+		<record id="view_opc_kelas_search" model="ir.ui.view">
+			<field name="name">Opc - Kelas Search</field>
+			<field name="model">opc.kelas</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<search string="kelas">
+					<field name="name" />
+					<field name="prodi_ids" />
+					<field name="jenjang_id" />	
+					<field name="is_current" />	
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="Jenjang" domain="[]"
+							context="{'group_by':'jenjang_id'}" />
+						<filter string="Prodi" domain="[]"
+							context="{'group_by':'prodi_ids'}" />
+						<filter string="Name" domain="[]"
+							context="{'group_by':'name'}" />		
+					</group>
+				</search>
+			</field>
+		</record>				
+		
+        <!-- Action View -->
+		
+        <record model="ir.actions.act_window" id="act_opc_kelas_view">
+			<field name="name">kelas</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">opc.kelas</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_opc_kelas_search" />
+			<field name="domain">[]</field>
+			<field name="context">{}</field>
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_opc_kelas_view_form">
+			<field name="act_window_id" ref="act_opc_kelas_view" />
+			<field name="sequence" eval="20" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_opc_kelas_form" />
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="act_opc_kelas_view_tree">
+			<field name="act_window_id" ref="act_opc_kelas_view" />
+			<field name="sequence" eval="10" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_opc_kelas_tree" />
+		</record>
+		
+		
+        <!-- Menu item groups="group_op_student,group_op_back_office_admin,group_op_back_office" -->      
+
+		<menuitem id="menu_opc_konfigurasi_kelas" name="Kelas"
+			parent="menu_opc_konfigurasi_main" sequence="22"
+			action="act_opc_kelas_view" 
+			/>
+    </data>
+</openerp>

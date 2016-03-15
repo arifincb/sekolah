@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>        
+        <!-- res.users -->
+        <record id="view_users_simple_form_inherit_sekolah" model="ir.ui.view">
+            <field name="name">res.users.simplified.form.inherit.sekolah</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_simple_form"/>
+            <field name="arch" type="xml">
+                <field name="phone" position="before">
+					<field name="birth_place"/>
+					<field name="birth_date"/>
+					<field name="birth_mother_name"/>
+					<field name="gender"/>
+				 </field>				
+            </field>
+        </record>
+        <record id="view_users_form_inherit_sekolah" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.sekolah</field>
+            <field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+					<field name="birth_place"/>
+					<field name="birth_date"/>
+					<field name="birth_mother_name"/>
+					<field name="gender"/>
+				 </field>
+            </field>
+        </record>        
+    </data>
+</openerp>
