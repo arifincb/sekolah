@@ -9,6 +9,8 @@
     'depends': ['base','hr'],
     'application': True,
     'data': [
+        'security/opc_security.xml',
+        'security/ir.model.access.csv',        
         'res_users/res_users_view.xml',
         'res_partner/res_partner_view.xml',
         'res_city/res_city_view.xml',
@@ -19,9 +21,7 @@
         'opc_jenjang/opc_jenjang_view.xml',
         'opc_kelas/opc_kelas_view.xml',
         'opc_prodi/opc_prodi_view.xml',
-        'opc_rombel/opc_rombel_view.xml',
-        'security/opc_security.xml',
-        'security/ir.model.access.csv',
+        'opc_rombel/opc_rombel_view.xml',                
         
     ],
 }

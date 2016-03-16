@@ -8,10 +8,10 @@
 			<field name="inherit_id" ref="base.view_partner_form" />
 			<field name="arch" type="xml">				
 				<field name="city" position="before">
-					<field name="districts_id" placeholder="Kecamatan" />
+					<field name="districts_id" placeholder="Kecamatan" on_change="onchange_districts(districts_id)" />
 				</field>				
 				<field name="city" position="after">
-					<field name="city_id" placeholder="Kota" on_change="onchange_districts(districts_id)" />
+					<field name="city_id" placeholder="Kota" />
 				</field>
 				<!--
 				<field name="state_id" position="replace">

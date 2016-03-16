@@ -239,6 +239,7 @@
 
 		<menuitem id="menu_dashboard_guru" name="Dashboard"
 			parent="menu_opc_guru_root" sequence="100" />
+		
 		<!--
 		<menuitem id="menu_opc_dashboard_guru" name="Guru Dashboard"
 			parent="menu_dashboard_guru" sequence="120" action="open_board_guru" />

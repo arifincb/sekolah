@@ -51,20 +51,21 @@ class ResPartner(models.Model):
     kelurahan = fields.Char('Desa/Kelurahan')
     #districts_id = fields.Many2one('res.districts','Kecamatan', placeholder="Kecamatan", domain="[('city_id', '=',city_id)]")
     #city_id = fields.Many2one('res.city','Kota', placeholder="Kota", domain="[('id', '=',districts_id.city_id.id)]")
-    districts_id = fields.Many2one('res.districts','Kecamatan', placeholder="Kecamatan")
+    districts_id = fields.Many2one('res.districts','Kecamatan', placeholder="Kecamatan", on_change="onchange_districts(disctricts_id)")
     city_id = fields.Many2one('res.city','Kota', placeholder="Kota")
     city = fields.Char(related='districts_id.city_id.name', inherited=True)
 
     @api.multi
+    #@api.onchange('districts_id')
     def onchange_districts(self, districts_id):
+    #def onchange_districts(self):    
         if districts_id:
             districts = self.env['res.districts'].browse(districts_id)            
             return {
-                'value': {
-                    'city': districts.city_id.name
-                    ,'city_id': districts.city_id.id
+                'value': {                    
+                    'city_id': districts.city_id.id
                     ,'state_id': districts.city_id.state_id.id
-                    ,'country_id': districts.city_id.state_id.country_id.id
+                    ,'country_id': districts.city_id.state_id.country_id.id                    
                     },
                 'domain': {
                     'city_id': [('state_id', '=', districts.city_id.state_id.id)]

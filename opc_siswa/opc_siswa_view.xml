@@ -71,7 +71,7 @@
 											<field name="kelurahan" placeholder="Desa/Kelurahan" style="width: 20%%" />											
 											<field name="districts_id" class="oe_no_button"
 												placeholder="Kecamatan" style="width: 37%%" options='{"no_open": True}' 
-												on_change="onchange_districts(districts_id)"
+												
 												/>													
 										</div>
 										<div class="address_format">
